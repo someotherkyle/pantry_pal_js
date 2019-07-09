@@ -1,10 +1,10 @@
 <h1><%=@recipe.name%></h1>
 <table>
-  <th>
-    <td>Item</td>
-    <td>Quantity</td>
-    <td>Unit</td>
-  </th>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+  </tr>
 <%@recipe.required_ingredients.each do |ing|%>
     <tr>
       <td><%=Ingredient.find(ing.ingredient_id).name%></td>
