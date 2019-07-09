@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pantry Pal</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class='nav-bar'>
+      <%if !current_user%>
+        <%=link_to "Sign Up", new_user_path%>
+        <%=link_to "Sign In", signin_path%>
+      <%else%>
+        <%=link_to "Sign Out", logout_path, method: 'delete'%>
+      <%end%>
+      <%=link_to "Home", root_url%>
+      <%if current_user%>
+        <%=link_to "Your Pantries", user_path(current_user)%>
+      <%end%>
+    </div>
+    <%= yield %>
+  </body>
+</html>

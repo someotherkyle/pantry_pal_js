@@ -1,0 +1,21 @@
+<h1><%=@pantry.location%></h1>
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+  </tr>
+<%@pantry.available_ingredients.each do |ing|%>
+    <tr>
+      <td><%=Ingredient.find(ing.ingredient_id).name%></td>
+      <td><%=ing.quantity%></td>
+      <td><%=ing.unit%></td>
+    </tr>
+  <%end%>
+</table>
+<%=link_to "Edit Pantry", edit_user_pantry_path(current_user, @pantry)%>
+<br>
+<%=link_to "Add Recipe", new_recipe_path%><br><br>
+<%Recipe.all.each do |rec|%>
+  <%=link_to rec.name, recipe_path(rec)%><br>
+<%end%>

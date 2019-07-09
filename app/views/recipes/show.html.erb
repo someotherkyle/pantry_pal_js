@@ -1,0 +1,18 @@
+<h1><%=@recipe.name%></h1>
+<table>
+  <th>
+    <td>Item</td>
+    <td>Quantity</td>
+    <td>Unit</td>
+  </th>
+<%@recipe.required_ingredients.each do |ing|%>
+    <tr>
+      <td><%=Ingredient.find(ing.ingredient_id).name%></td>
+      <td><%=ing.quantity%></td>
+      <td><%=ing.unit%></td>
+    </tr>
+  <%end%>
+</table>
+<p><%=@recipe.instructions%></p><br>
+<%=link_to "Edit Recipe", edit_recipe_path(@recipe)%>
+<br>

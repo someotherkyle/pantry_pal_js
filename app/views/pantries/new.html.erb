@@ -1,0 +1,12 @@
+<%if @pantry.errors.any?%>
+  <div class='fields_with_errors'>
+  <%@pantry.errors.full_messages.each do |msg|%>
+    <%=msg%>
+  <%end%>
+  </div>
+<%end%>
+<%=form_for @pantry, url: user_pantries_path do |f|%>
+  <%=f.label :location%>
+  <%=f.text_field :location%>
+  <%=f.submit%>
+<%end%>

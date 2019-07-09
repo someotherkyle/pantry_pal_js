@@ -1,0 +1,25 @@
+<%if @required.errors.any?%>
+  <div class='fields_with_errors'>
+    <%@required.errors.full_messages.each do |msg|%>
+      <%=msg%>
+    <%end%>
+  </div>
+<%end%>
+<p>Please update the quantites required for this recipe.</p>
+<%=form_for(@required) do |f|%>
+  <%=f.collection_select(:ingredient_id, @ingredients, :id, :name)%>
+  <%=hidden_field_tag :"required_ingredient[recipe_id]", params[:id]%>
+  <%=text_field_tag :"required_ingredient[quantity]"%>
+  <%=select_tag :"required_ingredient[unit]", raw("<option>Fluid Oz</option>
+                             <option>Cup</option>
+                             <option>Pint</option>
+                             <option>Quart</option>
+                             <option>Gallon</option>
+                             <option>Other</option>
+                             <option>Teaspoon</option>
+                             <option>Tablespoon</option>")%>
+  <%=submit_tag%>
+<br>
+<%end%>
+<br>
+<%=link_to "Add Ingredient", new_ingredient_path%>

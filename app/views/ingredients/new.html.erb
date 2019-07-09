@@ -1,0 +1,14 @@
+<%if @ingredient.errors.any?%>
+  <div class='fields_with_errors'>
+    <%@ingredient.errors.full_messages.each do |msg|%>
+      <%=msg%>
+    <%end%>
+  </div>
+<%end%>
+<%=form_for(@ingredient) do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%>
+  <%=f.label :wet%>
+  <%=f.check_box :wet%>
+  <%=f.submit%>
+<%end%>

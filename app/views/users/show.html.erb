@@ -1,0 +1,6 @@
+<p>Which Pantry would you like to see?</p>
+<%@pantries.each do |pantry|%>
+  <%=link_to pantry.location, user_pantry_path(current_user, pantry)%><br>
+<%end%>
+<%=link_to "Add A Pantry", new_user_pantry_path(current_user)%>
+

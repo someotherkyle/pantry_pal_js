@@ -1,0 +1,18 @@
+<%if @recipe.errors.any?%>
+  <div class='fields_with_errors'>
+    <%@recipe.errors.full_messages.each do |msg|%>
+      <%=msg%>
+    <%end%>
+  </div>
+<%end%>
+<%=form_for(@recipe) do |f|%>
+  <%=f.label :name%>
+  <%=f.text_field :name%>
+  <br>
+
+  <%=f.label :instructions%>
+  <%=f.text_area :instructions%>
+  <br>
+
+  <%=f.submit%>
+<%end%>
