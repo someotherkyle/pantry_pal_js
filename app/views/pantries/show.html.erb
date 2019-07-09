@@ -17,5 +17,6 @@
 <br>
 <%=link_to "Add Recipe", new_recipe_path%><br><br>
 <%Recipe.all.each do |rec|%>
-  <%=link_to rec.name, recipe_path(rec)%><br>
+  <%=link_to rec.name, recipe_path(rec), class: "recipe-link", data: {id: rec.id}%><br>
 <%end%>
+<div id="recipe-display"></div>
