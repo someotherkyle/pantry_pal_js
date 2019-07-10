@@ -1,5 +1,5 @@
 class RequiredIngredientSerializer < ActiveModel::Serializer
-  attributes :id, :quantity, :unit, :recipe_id, :ingredient_id
+  attributes :ingredient_id, :quantity, :unit
   belongs_to :recipe
   belongs_to :ingredient
 end

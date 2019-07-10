@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find_by(id: params[:id])
     respond_to do |f|
       f.html {render :show }
-      f.json {render json: @recipe}
+      f.json {render json: @recipe, include: ['ingredients', 'required_ingredients']}
     end
   end
 
