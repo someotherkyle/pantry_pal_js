@@ -6736,3 +6736,116 @@ Processing by RecipesController#show as JSON
 Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/recipes/1" for ::1 at 2019-07-10 13:38:37 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/kyle/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+[active_model_serializers]   [1m[36mRequiredIngredient Load (0.1ms)[0m  [1m[34mSELECT "required_ingredients".* FROM "required_ingredients" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers]   [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "required_ingredients" ON "ingredients"."id" = "required_ingredients"."ingredient_id" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (16.61ms)
+Completed 200 OK in 44ms (Views: 31.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/recipes/1" for ::1 at 2019-07-10 13:42:43 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+[active_model_serializers]   [1m[36mRequiredIngredient Load (0.3ms)[0m  [1m[34mSELECT "required_ingredients".* FROM "required_ingredients" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers]   [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "required_ingredients" ON "ingredients"."id" = "required_ingredients"."ingredient_id" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (7.8ms)
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes/1" for ::1 at 2019-07-10 13:42:46 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+[active_model_serializers]   [1m[36mRequiredIngredient Load (0.2ms)[0m  [1m[34mSELECT "required_ingredients".* FROM "required_ingredients" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers]   [1m[36mIngredient Load (0.3ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "required_ingredients" ON "ingredients"."id" = "required_ingredients"."ingredient_id" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (8.02ms)
+Completed 200 OK in 14ms (Views: 9.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes/1" for ::1 at 2019-07-10 13:42:47 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+[active_model_serializers]   [1m[36mRequiredIngredient Load (0.4ms)[0m  [1m[34mSELECT "required_ingredients".* FROM "required_ingredients" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers]   [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "required_ingredients" ON "ingredients"."id" = "required_ingredients"."ingredient_id" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (7.77ms)
+Completed 200 OK in 14ms (Views: 9.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/recipes/2" for ::1 at 2019-07-10 13:42:48 -0400
+Processing by RecipesController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT  "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:23
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+[active_model_serializers]   [1m[36mRequiredIngredient Load (0.2ms)[0m  [1m[34mSELECT "required_ingredients".* FROM "required_ingredients" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers]   [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "required_ingredients" ON "ingredients"."id" = "required_ingredients"."ingredient_id" WHERE "required_ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+[active_model_serializers]   ↳ app/controllers/recipes_controller.rb:26
+[active_model_serializers] Rendered RecipeSerializer with ActiveModelSerializers::Adapter::Attributes (7.71ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/1" for ::1 at 2019-07-10 13:44:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20
+  [1m[36mPantry Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "pantries" WHERE "pantries"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mPantry Load (0.1ms)[0m  [1m[34mSELECT "pantries".* FROM "pantries" WHERE "pantries"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:2
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  Rendered users/show.html.erb within layouts/application (4.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:7
+Completed 200 OK in 184ms (Views: 178.4ms | ActiveRecord: 0.7ms)
+
+
