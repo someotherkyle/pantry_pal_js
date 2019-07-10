@@ -1,5 +1,5 @@
 $(function(){
-  console.log("JS is actually fucking loading");
+  console.log("JS can suck my weiner");
   listenForClick();
 })
 
@@ -16,7 +16,29 @@ function getRecipe(id){
     method: 'get',
     dataType: 'json'
   }).done(function(data){
-    console.log(data)
+    console.log(data);
+    let recipe = new Recipe(data);
+    let displayHTML = recipe.postHTML();
+    document.getElementById("recipe-display").innerHTML = displayHTML;
+    //recipeHash = JSON.parse(data.body);
+    //$("#recipe-display").text(recipeHash);
   });
 }
 
+class Recipe {
+  constructor(object){
+    this.id = object.id;
+    this.name = object.name;
+    this.instructions = object.instructions;
+    this.required_ingredients = object.required_ingredients;
+  }
+}
+
+Recipe.prototype.postHTML = function(){
+  return(`
+    <div>
+      <h3>${this.name}</h3>
+      <p>${this.instructions}</p>
+    </div>
+  `)
+}
