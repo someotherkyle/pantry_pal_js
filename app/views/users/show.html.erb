@@ -1,10 +1,6 @@
 <p>Which Pantry would you like to see?</p>
-<div id="pantry-list">
-  <%@pantries.each do |pantry|%>
-    <%=link_to pantry.location, user_pantry_path(current_user, pantry)%><br>
-  <%end%>
-</div>
+<%@pantries.each do |pantry|%>
+  <%=link_to pantry.location, user_pantry_path(current_user, pantry)%><br>
+<%end%>
 <br>
 <%=link_to "Add A Pantry", new_user_pantry_path(current_user), class: "pantry-link"%>
-<br><br>
-<div id="pantry-form"></div>
