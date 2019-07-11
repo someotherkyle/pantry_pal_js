@@ -4,5 +4,7 @@
     <%=link_to pantry.location, user_pantry_path(current_user, pantry)%><br>
   <%end%>
 </div>
+<br>
 <%=link_to "Add A Pantry", new_user_pantry_path(current_user), class: "pantry-link"%>
+<br><br>
 <div id="pantry-form"></div>
