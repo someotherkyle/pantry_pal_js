@@ -1,9 +1,8 @@
 $(function(){
-  console.log("JS can suck my weiner");
-  listenForClick();
+  recipeLinkListener();
 })
 
-function listenForClick(){
+function recipeLinkListener(){
   $("a.recipe-link").on('click', function(e){
     e.preventDefault();
     getRecipe(e.currentTarget.dataset.id);
@@ -17,6 +16,7 @@ function getRecipe(id){
     dataType: 'json'
   }).done(function(data){
     console.log(data);
+    //issue here w/ JSON.parse(data.body); if I find motivation and want to explore (ie when this shit keeps me up at night)
     let recipe = new Recipe(data);
     let displayHTML = recipe.postHTML();
     document.getElementById("recipe-display").innerHTML = displayHTML;
@@ -27,7 +27,7 @@ class Recipe {
   constructor(object){
     this.id = object.id;
     this.name = object.name;
-    this.instructions = object.instructions.replace("\n", "<br>");
+    this.instructions = object.instructions.replace(/\r\n/g, "<br>");
     this.ingredients = object.ingredients;
     this.required_ingredients = object.required_ingredients;
   }
@@ -40,6 +40,7 @@ Recipe.prototype.hashifyIng = function(){
   }
   for(let i = 0; i < this.required_ingredients.length; i++){
     ingHash[`${this.required_ingredients[i].ingredient_id}`].push(this.required_ingredients[i].quantity);
+    //ADD UNITS TO ARRAY
   }
   return(ingHash);
 }
@@ -48,7 +49,7 @@ Recipe.prototype.displayIng = function(){
   ingredients = Object.values(this.hashifyIng());
   output = `<ol>`
   for(let i = 0; i < ingredients.length; i++){
-    output += `<li>${ingredients[i][0]} Quantity: ${ingredients[i][1]}</li>`;
+    output += `<li>${ingredients[i][0]} Quantity: ${ingredients[i][1]}</li>`; //ADD UNITS TO DISPLAY
   }
   output += `</ol>`;
   return(output);
