@@ -9,12 +9,24 @@ function enableListeners(){
     const formValues = $(this).serialize();
     const userId = document.location.href.match(/\d+/g)[1];
     $.post('/users/' + userId + '/pantries', formValues).done(function(data){
-      console.log(data);
+      let pantry = new Pantry(data);
+      displayNewPantry(pantry);
     });
   });
-
 }
 
-function appendPantry(){
-  //div id = "pantry-list"
+class Pantry{
+  constructor(obj){
+    this.id = obj.id;
+    this.location = obj.location;
+    this.user = obj.user;
+  }
+}
+
+function displayNewPantry(pantry){
+  $("#name").html(`
+    <h1>${pantry.location}</h1>
+    <br>
+    <a href="/users/${pantry.user.id}/pantries/${pantry.id}/edit">Edit Pantry</a><br>
+    <a href="/recipes/new">Add Recipe</a><br>`);
 }
