@@ -35,13 +35,13 @@ class Recipe {
 
 Recipe.prototype.hashifyIng = function(){
   let ingHash = {};
-  for(let i = 0; i < this.ingredients.length; i++){
+  for(let i = 0; i < this.ingredients.length; i++){ // MAY BE A BUILT IN FUNCTION TO SIMPLIFY THIS
     ingHash[`${this.ingredients[i].id}`] = [`${this.ingredients[i].name}`];
   }
-  for(let i = 0; i < this.required_ingredients.length; i++){
+  for(let i = 0; i < this.required_ingredients.length; i++){ // MAY BE A BUILT IN FUNCTION TO SIMPLIFY THIS
     ingHash[`${this.required_ingredients[i].ingredient_id}`].push(this.required_ingredients[i].quantity);
-    //ADD UNITS TO ARRAY
   }
+  //ADD UNITS TO ARRAY
   return(ingHash);
 }
 
